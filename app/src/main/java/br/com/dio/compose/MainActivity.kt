@@ -51,19 +51,29 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen() {
-    var clicks by remember { mutableStateOf(0) }
-
-    Column(modifier = Modifier.fillMaxSize()) {
-        ClickCounter(clicks = clicks) {
-            clicks++
-        }
-
-        HelloContent()
+//    var clicks by remember { mutableStateOf(0) }
+//
+//    Column(modifier = Modifier.fillMaxSize()) {
+//        ClickCounter(clicks = clicks) {
+//            clicks++
+//        }
+//
+//        HelloContent()
+//    }
+    Column {
+        DogCard(
+            dog = Dog("Lua", "viralata"),
+            modifier = Modifier.background(Color.Blue)
+        )
+        DogCard(
+            dog = Dog("Lua", "viralata"),
+            modifier = Modifier.background(Color.Green)
+        )
     }
 }
 
-@Composable
-fun HelloContent() {
+//@Composable
+/*fun HelloContent() {
     Column(modifier = Modifier.padding(16.dp)) {
         var name by remember { mutableStateOf("") }
         if (name.isNotEmpty()) {
@@ -83,7 +93,7 @@ fun HelloContent() {
             }
         )
     }
-}
+}*/
 
 @Composable
 fun ClickCounter(clicks: Int, onClick: () -> Unit) {
